@@ -19,7 +19,7 @@ $ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=비밀번호 --name docker-m
 
 ### 4. Database 및 계정 생성
 ```
-$ docker exec -i -t docker-mysql bash
+$ docker exec -i -t docker-mysql-utf8 bash
 $ mysql -u root -p
 mysql> create database db_example; -- Create the new database
 mysql> create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
