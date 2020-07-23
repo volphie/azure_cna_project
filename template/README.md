@@ -1,5 +1,7 @@
 # Template
-Spring Boot 및 JPA가 적용된 sample 프로젝트입니다. 순서대로 따라해 보세요
+Local PC 환경에서 Application Container와 DB Container를 띄워 실행하는 예제 프로젝트입니다.
+Application은 Spring Boot 및 JPA이고 DB는 Mysql 입니다.
+순서대로 따라해 보세요
 
 ## Getting Started
 ### 1. 작업 디렉토리로 이동
