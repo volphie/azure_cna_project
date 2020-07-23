@@ -1,3 +1,6 @@
+# Template
+Spring Boot 및 JPA가 적용된 sample 프로젝트입니다. 순서대로 따라해 보세요
+
 ## Getting Started
 ### 1. 작업 디렉토리로 이동
 ```
