@@ -1,3 +1,5 @@
+# Getting Started
+cd template
 
 -- Mysql Docker Image 다운로드
 docker pull mysql:5.7
