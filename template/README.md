@@ -49,7 +49,7 @@ $ docker build --tag sbtemplate:0.0.1 .
 
 ### 8. Run spring boot as a docker container
 ```
-$ docker run -d -p 9090:9090 --link docker-mysql-utf8 sbtemplate:0.0.1
+$ docker run -d -p 9090:9090 --link docker-mysql-utf8 --name sbtemplate sbtemplate:0.0.1
 ```
 ==> Container 내부의 Application에서 외부의 mysql 서버 접속되지 않음
 
