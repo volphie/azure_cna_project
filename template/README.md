@@ -1,9 +1,21 @@
 # Template
-* Local PC 환경에서 Docke를 이용해 Application Container와 DB Container를 띄워 실행하는 예제 프로젝트
+* Local PC 환경에서 Docker를 이용해 Application Container와 DB Container를 띄워 실행하는 예제 프로젝트
 * Application : Spring Boot, Spring JPA
 * DB : Mysql
 
+## 사전 조건
+* Windows 10
+* Docker Desktop 설치
+* JDK 설치
+* Maven 설치
+* Docker Client 설치
+
 ## Getting Started
+### 0. Git 다운로드
+```
+$ git clone https://github.com/volphie/azure_cna_project.git
+```
+
 ### 1. 작업 디렉토리로 이동
 ```
 $ cd template
@@ -18,15 +30,17 @@ $ mvn package
 ```
 $ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=비밀번호 --name docker-mysql-utf8 mysql:5.7 --character-set-server=utf8 --collation-server=utf8_unicode_ci
 ```
+* 비밀번호 위치에 mysql root 계정의 비밀번호로 사용할 값을 입력
 
 ### 4. Database 및 계정 생성
 ```
 $ docker exec -i -t docker-mysql-utf8 bash
-$ mysql -u root -p
+# mysql -u root -p
 mysql> create database db_example; -- Create the new database
 mysql> create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
 mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all the privileges to the new user on the newly created database
 ```
+
 
 ### 5. Application 설정 확인(application.properties 파일 수정)
 * 파일 위치 : src/main/resources/
@@ -61,12 +75,12 @@ $ docker run -d -p 9090:9090 --link docker-mysql-utf8 --name sbtemplate sbtempla
 
 ### 9. curl 실행하여 데이터 insert(Quatation 처리 주의)
 ```
-curl -X POST localhost:9090/users -H "Content-type:application/json" -d "{\"id\": 1, \"name\": \"Samwise Gamgee\", \"email\": \"gamgee@gmail.com\"}"
+$ curl -X POST localhost:9090/users -H "Content-type:application/json" -d "{\"id\": 1, \"name\": \"Samwise Gamgee\", \"email\": \"gamgee@gmail.com\"}"
 ```
 
 ### 10. insert 데이터 확인
 ```
-curl -X GET localhost:9090/users
+$ curl -X GET localhost:9090/users
 ```
 
 
