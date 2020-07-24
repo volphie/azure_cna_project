@@ -18,7 +18,7 @@ $ git clone https://github.com/volphie/azure_cna_project.git
 
 ### 1. 작업 디렉토리로 이동
 ```
-$ cd template
+$ cd azure_cna_project/template
 ```
 
 ### 2. Packaging
