@@ -1,5 +1,5 @@
 # Template
-* Local PC 환경에서 Docker를 이용해 Application Container와 DB Container를 띄워 실행하는 예제 프로젝트
+* Local PC 환경에서 Docker를 이용해 Application Container와 DB Container를 띄워 RESTful HTTP 요청을 처리하는 예제 프로젝트
 * Application : Spring Boot, Spring JPA
 * DB : Mysql
 
