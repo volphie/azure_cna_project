@@ -29,6 +29,7 @@ mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all the privilege
 ```
 
 ### 5. Application 설정 확인(application.properties 파일 수정)
+* 파일 위치 : src/main/resources/
 ```
 spring.jpa.hibernate.ddl-auto=create
 spring.datasource.url=jdbc:mysql://docker-mysql-utf8:3306/db_example
@@ -53,13 +54,10 @@ $ docker build --tag sbtemplate:0.0.1 .
 ```
 $ docker run -d -p 9090:9090 --link docker-mysql-utf8 --name sbtemplate sbtemplate:0.0.1
 ```
-==> Container 내부의 Application에서 외부의 mysql 서버 접속되지 않음
-
---link 옵션으로 docker-mysql container에 대한 접근 획득
-
-docker-mysql-utf8 컨테이너의 IP와 hostname이 sbtemplate 컨테이너 내부의 hosts 파일에 자동으로 등록됨
-
-특별히 설정하지 않은 상황이라면 컨테이너 내부에서 localhost는 컨테이너 자체를 가리킴. 즉, 컨테이너 바깥의 프로세스나 데몬에 접근하려면 직접 docker가 설치되어 있는 host의 IP를 명시적으로 지정해야 함
+* sbtemplate container 내부에서 mysql 서버 접속되도록 설정 필요
+* --link 옵션으로 docker-mysql-utf8 container에 대한 접근 획득
+* docker-mysql-utf8 container의 IP와 hostname이 sbtemplate container 내부의 hosts 파일에 자동 등록
+* 특별히 설정하지 않은 상황이라면 container 내부에서 localhost는 컨테이너 자체를 가리킴. 즉, 컨테이너 바깥의 프로세스나 데몬에 접근하려면 직접 docker가 설치되어 있는 host의 IP를 명시적으로 지정해야 함
 
 ### 9. curl 실행하여 데이터 insert(Quatation 처리 주의)
 ```
